@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Σύνδεση | Orion Padel</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="auth.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Σύνδεση</h1>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Κωδικός" required>
+      <button type="submit" class="btn">Σύνδεση</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) {
+        alert('Σφάλμα: ' + error.message);
+      } else {
+        alert('Επιτυχής σύνδεση!');
+        window.location.href = 'dashboard.html';  // Θα το φτιάξουμε μετά
+      }
+    });
+  </script>
+</body>
+</html>
