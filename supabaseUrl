@@ -1,0 +1,14 @@
+const supabase = createClient(
+  'https://ctdnukqwvihyxolveidm.supabase.co',  // Αντικαταστήστε με το Supabase URL σας
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0ZG51a3F3dmloeXhvbHZlaWRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNDc4NjEsImV4cCI6MjA2MjcyMzg2MX0.hc9WHv9R2Annmzd113RHmebrtG62pbBHC6G6Zpq6wwQ',  // Αντικαταστήστε με το δημόσιο κλειδί σας
+  {
+    auth: {
+      persistSession: false,
+    },
+    global: {
+      headers: {
+        'Access-Control-Allow-Origin': 'https://orionpadeladmin.github.io',
+      }
+    }
+  }
+);
